@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Yogesh Sharma | Clinic & Projects</title>
+    <style>
+        /* CSS Styling */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
+        
+        /* Header & Navigation */
+        header { background-color: #1a252f; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        header h1 { margin: 0; font-size: 24px; }
+        nav { display: flex; gap: 10px; margin-top: 10px; }
+        nav button { background-color: #2c3e50; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        nav button:hover, nav button.active { background-color: #18bc9c; }
+        
+        /* Sections */
+        .section { display: none; padding: 40px 20px; max-width: 1000px; margin: 20px auto; animation: fadeIn 0.5s ease-in-out; }
+        .section.active { display: block; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Clinic Section */
+        .clinic-card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); text-align: center; }
+        .clinic-card h2 { color: #2c3e50; margin-bottom: 20px; }
+        .switch-btn { display: inline-block; background-color: #e74c3c; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; margin-top: 25px; font-size: 16px; font-weight: bold; transition: 0.3s; }
+        .switch-btn:hover { background-color: #c0392b; }
+        
+        /* Profzio Section */
+        .profzio-header { text-align: center; margin-bottom: 30px; }
+        .profzio-features { display: flex; gap: 20px; flex-wrap: wrap; }
+        .feature-box { background: white; padding: 20px; border-radius: 12px; flex: 1; min-width: 300px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); text-align: center; }
+        .profzio-img-placeholder { background: #ecf0f1; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 15px; color: #7f8c8d; border: 2px dashed #bdc3c7; }
+        
+        /* Android Section */
+        .android-links { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto; }
+        .android-links a { background: #3498db; color: white; padding: 15px; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center; transition: 0.3s; }
+        .android-links a:hover { background: #2980b9; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dr. Yogesh Sharma</h1>
+        <nav>
+            <button class="nav-btn active" onclick="showSection('clinic')">Clinic</button>
+            <button class="nav-btn" onclick="showSection('profzio')">Profzio</button>
+            <button class="nav-btn" onclick="showSection('android')">Android Dev</button>
+        </nav>
+    </header>
+
+    <div id="clinic" class="section active">
+        <div class="clinic-card">
+            <h2>Welcome to Our Advanced Physiotherapy Clinic</h2>
+            <p>Providing evidence-based treatments, active rehab, and advanced modalities for fast and effective recovery.</p>
+            <p><strong>Treatments:</strong> TENS, Ultrasound, Traction, Cupping, and Manual Therapy.</p>
+            
+            <button class="switch-btn" onclick="showSection('profzio')">Switch to Profzio</button>
+        </div>
+    </div>
+
+    <div id="profzio" class="section">
+        <div class="profzio-header">
+            <h2>Profzio Software</h2>
+            <p>The complete management solution for modern clinics.</p>
+        </div>
+        
+        <div class="profzio-features">
+            <div class="feature-box">
+                <div class="profzio-img-placeholder">[ Insert Screenshot 1 Here ]</div>
+                <h3>Patient Dashboard</h3>
+                <p>Track appointments, maintain digital records, and monitor patient recovery rates seamlessly.</p>
+            </div>
+            <div class="feature-box">
+                <div class="profzio-img-placeholder">[ Insert Screenshot 2 Here ]</div>
+                <h3>Analytics & Reports</h3>
+                <p>Generate detailed clinic performance reports and billing summaries with a single click.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="android" class="section">
+        <h2 style="text-align: center;">Android Development & Ports</h2>
+        <p style="text-align: center; margin-bottom: 30px;">Download my custom Android ROMs and ports below:</p>
+        
+        <div class="android-links">
+            <a href="#" target="_blank">Download Port 1 (Link)</a>
+            <a href="#" target="_blank">Download Port 2 (Link)</a>
+            <a href="#" target="_blank">Download Port 3 (Link)</a>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            
+            // Remove 'active' styling from all top navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Highlight the correct top navigation button
+            const btns = document.querySelectorAll('.nav-btn');
+            if(sectionId === 'clinic') btns[0].classList.add('active');
+            if(sectionId === 'profzio') btns[1].classList.add('active');
+            if(sectionId === 'android') btns[2].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
