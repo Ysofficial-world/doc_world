@@ -3,207 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Yogesh Sharma | Care & Cure | Tech Hub</title>
+    <title>Dr. Yogesh Sharma | Care & Cure Clinic | Tech Hub</title>
     <style>
-        /* === APPLE-STYLE DESIGN SYSTEM === */
+        /* === ULTRA MODERN COLOR PALETTE & VARIABLES === */
         :root {
-            --apple-bg: #f5f5f7;
-            --apple-white: #ffffff;
-            --apple-dark: #1d1d1f;
-            --apple-black: #000000;
-            --apple-blue: #0066cc;
-            --apple-blue-hover: #0077ed;
-            --apple-gray: #86868b;
-            --apple-light-gray: #e8e8ed;
-            --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --shadow-bento: 0 4px 24px rgba(0,0,0,0.06);
-            --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --med-primary: #0077b6;
+            --med-light: #e0fbfc;
+            --tech-bg: #0b132b;
+            --tech-accent: #00ffcc;
+            --text-dark: #1d3557;
+            --text-light: #f1faee;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --shadow-soft: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            font-family: var(--font-stack);
-            margin: 0; padding: 0;
-            background-color: var(--apple-bg);
-            color: var(--apple-dark);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fc;
+            color: var(--text-dark);
+            line-height: 1.7;
         }
 
-        /* === STICKY BLURRED NAVBAR === */
+        /* === GLASSMORPHISM NAVBAR === */
         nav {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
             z-index: 9999;
-            display: flex; justify-content: center; align-items: center;
-            padding: 12px 0;
-            transition: var(--transition);
-        }
-
-        .nav-container {
-            width: 100%; max-width: 1000px;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            box-sizing: border-box;
+            box-shadow: var(--shadow-soft);
         }
 
         .logo {
-            font-size: 1.2rem; font-weight: 600;
-            color: var(--apple-dark); text-decoration: none;
-            letter-spacing: -0.5px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--med-primary);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-
-        .nav-links { display: flex; gap: 25px; }
 
         .nav-links a {
-            color: var(--apple-dark); text-decoration: none;
-            font-size: 0.85rem; font-weight: 400; opacity: 0.8;
-            transition: var(--transition); letter-spacing: -0.2px;
-        }
-
-        .nav-links a:hover { opacity: 1; color: var(--apple-blue); }
-
-        /* === TYPOGRAPHY & HEADERS === */
-        .headline-super {
-            font-size: 5rem; font-weight: 700; letter-spacing: -2.5px;
-            line-height: 1.05; margin-bottom: 20px;
-        }
-        
-        .headline-sub {
-            font-size: 1.8rem; font-weight: 500; letter-spacing: -0.5px;
-            color: var(--apple-gray); margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 3rem; font-weight: 700; letter-spacing: -1.5px;
-            text-align: center; margin-bottom: 15px; line-height: 1.1;
-        }
-
-        .section-subtitle {
-            font-size: 1.3rem; text-align: center; color: var(--apple-gray);
-            max-width: 800px; margin: 0 auto 60px auto; font-weight: 400;
-        }
-
-        /* === HERO SECTION === */
-        .hero {
-            padding: 180px 20px 100px 20px;
-            text-align: center; background: var(--apple-bg);
-            display: flex; flex-direction: column; align-items: center;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, #2b5876 0%, #4e4376 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .cta-btn {
-            background-color: var(--apple-blue);
-            color: var(--apple-white); padding: 12px 24px;
-            border-radius: 30px; font-size: 1.1rem; font-weight: 500;
-            text-decoration: none; transition: var(--transition);
-            display: inline-flex; align-items: center; gap: 8px;
-        }
-
-        .cta-btn:hover { background-color: var(--apple-blue-hover); transform: scale(1.02); }
-
-        /* === BENTO BOX GRID SYSTEM (APPLE STYLE) === */
-        .bento-container {
-            max-width: 1200px; margin: 0 auto; padding: 60px 20px;
-        }
-
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px; grid-auto-rows: minmax(300px, auto);
-        }
-
-        .bento-card {
-            background: var(--apple-white);
-            border-radius: 28px; padding: 40px;
-            box-shadow: var(--shadow-bento);
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 8px 20px;
+            margin: 0 5px;
+            font-weight: 600;
+            border-radius: 30px;
             transition: var(--transition);
-            overflow: hidden; position: relative;
         }
 
-        .bento-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.1); transform: translateY(-4px); }
+        .nav-links a:hover {
+            background-color: var(--med-primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
+        }
 
-        .span-2 { grid-column: span 2; }
-        .span-3 { grid-column: span 3; }
+        /* === DYNAMIC HERO SECTION === */
+        .hero {
+            padding: 150px 5% 100px 5%;
+            background: linear-gradient(135deg, #e0fbfc 0%, #90e0ef 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
 
-        .bento-label {
-            font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 1.2px; color: var(--apple-gray); margin-bottom: 15px;
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+            animation: pulse 10s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--med-primary);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #023e8a;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .bio-box {
+            background: var(--glass-bg);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+            text-align: justify;
+        }
+
+        .insta-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(220, 39, 67, 0.3);
+        }
+
+        .insta-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 25px rgba(220, 39, 67, 0.5);
+        }
+
+        /* === MODERN NAVIGATION CARDS (THE 3 TABS) === */
+        .action-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: -50px auto 80px auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 20;
+        }
+
+        .action-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-dark);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-bottom: 5px solid var(--med-primary);
+            transition: var(--transition);
+        }
+
+        .action-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 45px rgba(0,119,182,0.2);
+            background: var(--med-primary);
+            color: var(--white);
+        }
+
+        .action-card:nth-child(2) { border-bottom-color: #48cae4; }
+        .action-card:nth-child(2):hover { background: #48cae4; color: #000; }
+        
+        .action-card:nth-child(3) { border-bottom-color: var(--tech-bg); }
+        .action-card:nth-child(3):hover { background: var(--tech-bg); color: var(--tech-accent); }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
             display: block;
         }
 
-        .bento-card h3 {
-            font-size: 2rem; font-weight: 700; letter-spacing: -0.8px;
-            margin: 0 0 15px 0; color: var(--apple-dark); line-height: 1.2;
+        .action-card h3 {
+            font-size: 1.5rem;
+            margin: 0;
         }
 
-        .bento-card p {
-            font-size: 1.15rem; color: var(--apple-gray); margin: 0; line-height: 1.6;
+        /* === SECTIONS GENERAL === */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 5%;
         }
 
-        ul.apple-list {
-            list-style: none; padding: 0; margin: 25px 0 0 0;
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--med-primary);
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 800;
         }
 
-        ul.apple-list li {
-            padding: 12px 0; border-bottom: 1px solid var(--apple-light-gray);
-            font-size: 1.1rem; color: var(--apple-dark);
-            display: flex; align-items: center; gap: 10px;
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
         }
 
-        ul.apple-list li:last-child { border-bottom: none; }
-        ul.apple-list li::before { content: '􀆅'; color: var(--apple-blue); font-family: sans-serif; font-weight: bold; }
-
-        /* === DARK MODE SECTION (TECH / YARVIS) === */
-        .pro-section {
-            background-color: var(--apple-black);
-            color: var(--apple-bg);
-            padding: 120px 20px;
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
 
-        .pro-section .section-title { color: var(--apple-white); }
-        .pro-section .section-subtitle { color: #a1a1a6; }
-
-        .pro-bento {
-            background: #151516; border: 1px solid #333;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        /* === CLINIC & EMR SECTIONS === */
+        .feature-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border-left: 6px solid var(--med-primary);
         }
 
-        .pro-bento h3 { color: var(--apple-white); }
-        .pro-bento p { color: #a1a1a6; }
-        .pro-bento ul.apple-list li { color: #e8e8ed; border-bottom-color: #333; }
-        .pro-bento ul.apple-list li::before { color: #00ffcc; }
+        .feature-box:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
 
-        .chip-tag {
-            display: inline-block; background: #222; border: 1px solid #444;
-            color: #fff; padding: 6px 16px; border-radius: 20px;
-            font-family: monospace; font-size: 0.9rem; margin: 5px 5px 5px 0;
+        .feature-box h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-top: 0;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modality-tag {
+            background: var(--med-light);
+            color: var(--med-primary);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            border: 1px solid #90e0ef;
+        }
+
+        .list-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-items li {
+            position: relative;
+            padding: 12px 0 12px 35px;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .list-items li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: var(--med-primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* === TECH HUB & YARVIS (DARK MODE VIBE) === */
+        .tech-section {
+            background-color: var(--tech-bg);
+            color: var(--text-light);
+            padding: 100px 5%;
+            margin-top: 40px;
+        }
+
+        .tech-section .section-title {
+            color: var(--tech-accent);
+        }
+
+        .tech-section .section-subtitle {
+            color: #a0aec0;
+        }
+
+        .tech-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .tech-box h3 {
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .dev-tag {
+            background: rgba(0, 255, 204, 0.1);
+            color: var(--tech-accent);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1rem;
+            border: 1px solid rgba(0, 255, 204, 0.3);
+        }
+
+        .tech-box .list-items li {
+            border-bottom-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .tech-box .list-items li::before {
+            color: var(--tech-accent);
+            content: '❯';
         }
 
         /* === FOOTER === */
         footer {
-            background: var(--apple-bg); padding: 40px 20px;
-            text-align: center; border-top: 1px solid #d2d2d7;
-            color: var(--apple-gray); font-size: 0.9rem;
+            background: #050a15;
+            color: #a0aec0;
+            text-align: center;
+            padding: 40px 5%;
         }
 
-        footer a { color: var(--apple-blue); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        footer h2 {
+            color: var(--white);
+            margin-bottom: 5px;
+        }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .span-2, .span-3 { grid-column: span 1; }
-            .headline-super { font-size: 3.5rem; }
-            .section-title { font-size: 2.2rem; }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; /* Can add hamburger menu later */ }
+            nav { justify-content: center; }
         }
     </style>
 </head>
@@ -211,139 +362,138 @@
 
     <!-- NAVBAR -->
     <nav>
-        <div class="nav-container">
-            <a href="#home" class="logo">Dr. Yogesh Sharma</a>
-            <div class="nav-links">
-                <a href="#about">About & Vision</a>
-                <a href="#clinic">Care & Cure</a>
-                <a href="#software">Pro Physio</a>
-                <a href="#tech">YARVIS Pro</a>
-            </div>
+        <a href="#home" class="logo">Dr. Yogesh Sharma</a>
+        <div class="nav-links">
+            <a href="#clinic">Care & Cure Clinic</a>
+            <a href="#prophysio">Pro Physio EMR</a>
+            <a href="#tech">Android & YARVIS</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO & BIO SECTION -->
     <div class="hero" id="home">
-        <h1 class="headline-super">Medical Science.<br><span class="gradient-text">Engineered perfectly.</span></h1>
-        <p class="headline-sub">Physiotherapist. Android Developer. Innovator.</p>
-        <a href="https://instagram.com/its_dr_yogesh" target="_blank" class="cta-btn">
-            Follow on Instagram @its_dr_yogesh
+        <div class="hero-content">
+            <h1>Dr. <span>Yogesh Sharma</span> (PT)</h1>
+            <div class="subtitle">Doctor × Advanced Software Engineer</div>
+            
+            <div class="bio-box">
+                <strong>Medical Expertise meets Tech Innovation.</strong> I possess a unique dual-expertise with a profound history in both the medical field and complex Android/Software development. By merging these skills, I engineered <strong>Pro Physio</strong>, an elite EMR software solution. <br><br>
+                Today, I proudly balance my passion as an active Android Developer while providing top-tier patient care at my own <strong>Care & Cure Physiotherapy Clinic (125033)</strong>, ensuring healthcare is driven by modern technology.
+            </div>
+
+            <a href="https://instagram.com/its_dr_yogesh" target="_blank" class="insta-btn">
+                📸 Follow @its_dr_yogesh
+            </a>
+        </div>
+    </div>
+
+    <!-- 3 PREMIUM TABS / BUTTONS -->
+    <div class="action-cards">
+        <a href="#clinic" class="action-card">
+            <span class="card-icon">🏥</span>
+            <h3>Care & Cure Clinic</h3>
+            <p>Advanced Rehabilitation</p>
+        </a>
+        <a href="#prophysio" class="action-card">
+            <span class="card-icon">💻</span>
+            <h3>Pro Physio EMR</h3>
+            <p>Digital Healthcare Ecosystem</p>
+        </a>
+        <a href="#tech" class="action-card">
+            <span class="card-icon">⚙️</span>
+            <h3>Android & YARVIS</h3>
+            <p>Custom Ports & Flash Tools</p>
         </a>
     </div>
 
-    <!-- ABOUT, VISION & MISSION (BENTO GRID) -->
-    <div class="bento-container" id="about">
-        <div class="bento-grid">
-            <div class="bento-card span-3" style="text-align: center;">
-                <span class="bento-label">The Founder</span>
-                <h3 style="font-size: 2.5rem;">Two domains. One unparalleled mind.</h3>
-                <p style="max-width: 800px; margin: 0 auto; font-size: 1.3rem;">
-                    Graduating from the prestigious <strong>University of Health Sciences, Rohtak</strong>, Dr. Yogesh Sharma (PT) stands at a rare intersection of deep clinical expertise and advanced software engineering. He is an active medical professional running a highly successful clinic, while simultaneously pushing the boundaries of open-source Android development and enterprise software architecture.
-                </p>
-            </div>
-
-            <div class="bento-card">
-                <span class="bento-label">Our Vision</span>
-                <h3>Redefining Healthcare Tech.</h3>
-                <p>To completely eliminate the divide between clinical physical therapy and technological advancement. We envision a future where patient rehabilitation is heavily backed by secure, offline, and intelligent software ecosystems, ensuring highly accurate assessments and lightning-fast recovery.</p>
-            </div>
-
-            <div class="bento-card span-2" style="background: #e8f4fd;">
-                <span class="bento-label">Our Mission</span>
-                <h3>Evidence-based practice. Global impact.</h3>
-                <p>Our mission is twofold. First, to deliver world-class, research-backed physical rehabilitation to our local community through advanced osteo-rehab techniques and modern modalities. Second, to empower the global tech community by developing robust, open-source Android ports and enterprise-grade clinical management software that sets a new industry standard.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- CARE & CURE CLINIC SECTION -->
-    <div class="bento-container" id="clinic">
+    <!-- TAB 1: CLINIC SECTION -->
+    <div class="section-container" id="clinic">
         <h2 class="section-title">Care & Cure Physiotherapy Clinic</h2>
-        <p class="section-subtitle">PIN: 125033. Advanced healing. Digitally empowered.</p>
+        <p class="section-subtitle">PIN: 125033 | Permanent Relief Backed by Research & Experience</p>
         
-        <div class="bento-grid">
-            <div class="bento-card span-2">
-                <span class="bento-label">Clinical Excellence</span>
-                <h3>Rooted in Osteo-Rehab Principles.</h3>
-                <p>Inspired by the highest standards of physical therapy, every treatment protocol at Care & Cure is formulated using evidence-based research and extensive clinical experience. We don't just treat symptoms; we diagnose the mechanical root cause using advanced manual therapy and precise biomechanical assessments.</p>
-                <ul class="apple-list">
-                    <li><strong>Advanced Manual Therapy:</strong> Precision joint mobilization and soft tissue manipulation.</li>
-                    <li><strong>TENS (Transcutaneous Electrical Nerve Stimulation):</strong> Advanced waveform therapy for immediate, non-invasive acute and chronic pain relief.</li>
-                    <li><strong>Therapeutic Ultrasound (US):</strong> High-frequency sound waves for deep tissue healing, reducing inflammation, and cellular repair.</li>
-                    <li><strong>Muscle Stimulator (MS) & IFT:</strong> Targeting muscle atrophy re-education and deep interferential current therapy for complex pain syndromes.</li>
-                </ul>
-            </div>
-
-            <div class="bento-card" style="background: #fbfbfd; border: 1px solid #e8e8ed;">
-                <span class="bento-label">Digital Ecosystem</span>
-                <h3>100% Paperless. Zero friction.</h3>
-                <p>Experience healthcare management designed for the 21st century. Powered natively by our own software ecosystem.</p>
-                <ul class="apple-list">
-                    <li>Smart Digital Patient ID Cards.</li>
-                    <li>Assessment Cards via PDF directly to your mobile number.</li>
-                    <li>Transparent, fully digital billing.</li>
-                    <li>Automated WhatsApp next-appointment reminders.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- PRO PHYSIO EMR SECTION -->
-    <div class="bento-container" id="software">
-        <h2 class="section-title">Pro Physio Enterprise EMR</h2>
-        <p class="section-subtitle">The ultimate clinical operating system. Built by a doctor, for doctors.</p>
-        
-        <div class="bento-grid">
-            <div class="bento-card">
-                <span class="bento-label">Absolute Privacy</span>
-                <h3>100% Offline.</h3>
-                <p>In an era of vulnerable cloud infrastructure, Pro Physio guarantees absolute data sovereignty. All patient records, logs, and revenue metrics are stored locally and encrypted on your clinic's machine, eliminating the risk of data breaches.</p>
-            </div>
-
-            <div class="bento-card span-2" style="background: linear-gradient(145deg, #ffffff, #f5f5f7);">
-                <span class="bento-label">Core Features</span>
-                <h3>Everything you need. In one window.</h3>
-                <p>Designed with a beautiful macOS Light/Dark native UI, Pro Physio handles complex clinical workflows effortlessly.</p>
-                <ul class="apple-list">
-                    <li><strong>Comprehensive Assessments:</strong> Dedicated workflows for Musculoskeletal, Neurological, Cardiopulmonary, and Sports evaluations.</li>
-                    <li><strong>Advanced Charting:</strong> Interactive ROM Grids, MMT Charting, and integrated Red Flag Screening.</li>
-                    <li><strong>Enterprise Actions:</strong> Generate premium PDF clinical reports with 1-click and share instantly via integrated WhatsApp API.</li>
-                    <li><strong>Practice Management:</strong> Dynamic Revenue Dashboard, Home Exercise Program (HEP) generator, and automated digital Consent Forms.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- YARVIS & ANDROID DEV (DARK "PRO" SECTION) -->
-    <div class="pro-section" id="tech">
-        <div class="bento-container" style="padding-top: 0; padding-bottom: 0;">
-            <h2 class="section-title">YARVIS 9.0 & Android Engineering</h2>
-            <p class="section-subtitle">Pro-level firmware development and universal flashing utilities.</p>
-            
-            <div class="bento-grid">
-                <div class="bento-card pro-bento span-2">
-                    <span class="bento-label">Yarvis Flasher</span>
-                    <h3>The Master Multi-Device Hub Online.</h3>
-                    <p>YARVIS 9.0 is an intelligent, Windows-based flashing command center engineered by Dr. YSOFFICIAL. Built to eliminate the complexity of firmware deployment.</p>
-                    <ul class="apple-list">
-                        <li><strong>AI Voice Assistant:</strong> Native integration with the SAPI Voice Engine for real-time auditory status updates and system prompts.</li>
-                        <li><strong>Auto-Detection Engine:</strong> Scans fastboot instantly to identify exact hardware signatures.</li>
-                        <li><strong>Intelligent Auto-Routing Matrix:</strong> Dynamically loads precise flashing protocols for Moto G30, Xiaomi Poco, GT 10 Pro, and more.</li>
-                        <li><strong>Failsafe Manual Overrides:</strong> Secure manual selection protocols to prevent hard-bricks during experimental flashes.</li>
-                    </ul>
+        <div class="grid-2">
+            <div class="feature-box">
+                <h3>Advanced Treatments</h3>
+                <p>Formulated from the latest medical findings and extensive clinical experience, our treatments use high-end manual techniques and advanced modalities.</p>
+                <div class="tag-list">
+                    <span class="modality-tag">Advanced Manual Therapy</span>
+                    <span class="modality-tag">TENS</span>
+                    <span class="modality-tag">US (Ultrasound)</span>
+                    <span class="modality-tag">MS (Muscle Stimulator)</span>
+                    <span class="modality-tag">IFT</span>
                 </div>
+            </div>
+            
+            <div class="feature-box" style="border-left-color: #48cae4; background: #f0fcfc;">
+                <h3>Digital Ecosystem (Powered by Pro Physio)</h3>
+                <p>We are a 100% paperless clinic. Say goodbye to old files and embrace smart digital healthcare.</p>
+                <ul class="list-items">
+                    <li>Smart Digital Patient ID Cards.</li>
+                    <li>Clinical Assessment Cards sent directly via PDF to your Mobile.</li>
+                    <li>100% Digital, transparent Billing & Invoicing.</li>
+                    <li>Automated Next Appointment WhatsApp Reminders.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-                <div class="bento-card pro-bento">
-                    <span class="bento-label">Custom ROMs</span>
-                    <h3>Architectural mastery.</h3>
-                    <p>Active development, porting, and kernel optimization for complex mobile architectures, ensuring enhanced UI/UX and system stability.</p>
-                    <div style="margin-top: 20px;">
-                        <span class="chip-tag">CK8N</span>
-                        <span class="chip-tag">CK8NB (ck8nu_h931)</span>
-                        <span class="chip-tag">CK9N (ck9n_h933)</span>
-                        <span class="chip-tag">Tecno Camon 20 Pro (ck7n_h894)</span>
-                        <span class="chip-tag">Tecno Fold 2 (ae10_h833)</span>
+    <!-- TAB 2: PRO PHYSIO EMR SECTION -->
+    <div class="section-container" id="prophysio">
+        <h2 class="section-title">Pro Physio Enterprise Software</h2>
+        <p class="section-subtitle">The Ultimate EMR Software Built Specifically by a Doctor.</p>
+        
+        <div class="grid-2">
+            <div class="feature-box" style="border-left-color: #023e8a;">
+                <h3>Absolute Security & Offline Core</h3>
+                <p>Designed for supreme data privacy, Pro Physio runs <strong>100% Offline</strong>. Your clinic data never touches vulnerable cloud servers, ensuring zero data breach risk while providing instant local backups.</p>
+                <ul class="list-items" style="margin-top: 20px;">
+                    <li>1-Click Premium PDF Report Generation.</li>
+                    <li>Complete Ortho, Neuro, Cardio & Sports Modules.</li>
+                    <li>Interactive ROM Grids & Custom MMT Charting.</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box" style="border-left-color: #0077b6;">
+                <h3>Clinic Automation</h3>
+                <p>Streamline your entire physiotherapy practice with advanced enterprise actions.</p>
+                <ul class="list-items">
+                    <li>Dynamic Financial Dashboard & Revenue Logs.</li>
+                    <li>Home Exercise Program (HEP) Generator.</li>
+                    <li>Digital Informed Consent Form generation.</li>
+                    <li>Seamless WhatsApp integration for sharing records.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 3: TECH & YARVIS SECTION (DARK THEME) -->
+    <div class="tech-section" id="tech">
+        <div class="section-container" style="padding: 0;">
+            <h2 class="section-title">Android Engineering & YARVIS Tools</h2>
+            <p class="section-subtitle">Expert in Custom Firmware, ROM Porting, and Flashing Utilities.</p>
+            
+            <div class="grid-2">
+                <div class="tech-box">
+                    <h3>Custom Android Ports</h3>
+                    <p style="margin-bottom: 25px;">Pushing hardware limits by developing and maintaining custom ROMs and seamless OS ports for complex device architectures.</p>
+                    <div class="tag-list">
+                        <span class="dev-tag">CK8N</span>
+                        <span class="dev-tag">CK8NB (ck8nu_h931)</span>
+                        <span class="dev-tag">CK9N (ck9n_h933)</span>
+                        <span class="dev-tag">Tecno Camon 20 Pro (ck7n_h894)</span>
+                        <span class="dev-tag">Tecno Fold 2 (ae10_h833)</span>
                     </div>
+                </div>
+                
+                <div class="tech-box">
+                    <h3>YARVIS 9.0 Universal Flasher</h3>
+                    <p style="margin-bottom: 20px;">The Ultimate Master Multi-Device Hub Online. A highly intelligent Windows flashing tool.</p>
+                    <ul class="list-items">
+                        <li><strong>AI Voice Assistant:</strong> Integrated SAPI Voice Engine for real-time auditory status.</li>
+                        <li><strong>Auto-Detection:</strong> Scans fastboot to identify exact hardware signatures.</li>
+                        <li><strong>Auto-Routing Matrix:</strong> Dynamically loads flashing profiles for Moto G30, Xiaomi Poco, GT 10 Pro, etc.</li>
+                        <li><strong>Failsafe Systems:</strong> Secure manual override capabilities.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -351,13 +501,13 @@
 
     <!-- FOOTER -->
     <footer>
-        <p style="font-size: 1.1rem; font-weight: 600; color: var(--apple-dark);">Care & Cure Physiotherapy Clinic (125033)</p>
-        <p>Medical Expertise & Advanced Tech Innovation</p>
-        <p style="margin: 15px 0;">
-            <a href="https://instagram.com/its_dr_yogesh" target="_blank">Instagram: @its_dr_yogesh</a>
+        <h2>Care & Cure Physiotherapy Clinic</h2>
+        <p>PIN: 125033 | Medical & Tech Innovator</p>
+        <p style="margin-top: 15px;">
+            <a href="https://instagram.com/its_dr_yogesh" target="_blank" style="color: var(--tech-accent); text-decoration: none; font-size: 1.2rem; font-weight: bold;">Instagram: @its_dr_yogesh</a>
         </p>
-        <p style="opacity: 0.6; margin-top: 30px;">
-            &copy; 2026 Dr. Yogesh Sharma. All Rights Reserved. Designed with Apple-style precision.
+        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.5;">
+            &copy; 2026 Dr. Yogesh Sharma. All Rights Reserved.
         </p>
     </footer>
 
