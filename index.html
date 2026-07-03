@@ -3,112 +3,385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Yogesh Sharma | Clinic & Projects</title>
+    <title>Dr. Yogesh Sharma | Pro Physio Center & Tech Hub</title>
     <style>
-        /* CSS Styling */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
-        
-        /* Header & Navigation */
-        header { background-color: #1a252f; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        header h1 { margin: 0; font-size: 24px; }
-        nav { display: flex; gap: 10px; margin-top: 10px; }
-        nav button { background-color: #2c3e50; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-        nav button:hover, nav button.active { background-color: #18bc9c; }
-        
-        /* Sections */
-        .section { display: none; padding: 40px 20px; max-width: 1000px; margin: 20px auto; animation: fadeIn 0.5s ease-in-out; }
-        .section.active { display: block; }
-        
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        :root {
+            --primary: #0f4c75;
+            --secondary: #3282b8;
+            --accent: #bbe1fa;
+            --dark: #1b262c;
+            --text-dark: #333333;
+            --text-light: #f5f5f5;
+            --bg-light: #f9fbfd;
+            --card-bg: #ffffff;
+            --shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
 
-        /* Clinic Section */
-        .clinic-card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); text-align: center; }
-        .clinic-card h2 { color: #2c3e50; margin-bottom: 20px; }
-        .switch-btn { display: inline-block; background-color: #e74c3c; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; margin-top: 25px; font-size: 16px; font-weight: bold; transition: 0.3s; }
-        .switch-btn:hover { background-color: #c0392b; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 15px 50px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 8px 15px;
+            margin: 0 5px;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: var(--text-light);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Section Styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+            display: block;
+            margin: 15px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        ul.feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul.feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        ul.feature-list li::before {
+            content: '✓';
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* About Section Enhancements */
+        .about-content {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary);
+        }
+
+        .vision-box {
+            background-color: #eaf4fc;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary);
+            margin: 30px 0;
+        }
+
+        .vision-box h4 {
+            color: var(--dark);
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .vision-box p {
+            margin: 0;
+            font-style: italic;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .instagram-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .instagram-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(220, 39, 67, 0.4);
+            color: white;
+        }
+
+        .tech-box {
+            background-color: var(--dark);
+            color: var(--text-light);
+            border-top: 4px solid #00ffcc;
+        }
         
-        /* Profzio Section */
-        .profzio-header { text-align: center; margin-bottom: 30px; }
-        .profzio-features { display: flex; gap: 20px; flex-wrap: wrap; }
-        .feature-box { background: white; padding: 20px; border-radius: 12px; flex: 1; min-width: 300px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); text-align: center; }
-        .profzio-img-placeholder { background: #ecf0f1; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 15px; color: #7f8c8d; border: 2px dashed #bdc3c7; }
-        
-        /* Android Section */
-        .android-links { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto; }
-        .android-links a { background: #3498db; color: white; padding: 15px; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center; transition: 0.3s; }
-        .android-links a:hover { background: #2980b9; transform: translateY(-2px); }
+        .tech-box h3 {
+            color: #00ffcc;
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
+
+        .device-tag {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            nav { flex-direction: column; gap: 15px; padding: 15px; }
+            .hero h1 { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Dr. Yogesh Sharma</h1>
-        <nav>
-            <button class="nav-btn active" onclick="showSection('clinic')">Clinic</button>
-            <button class="nav-btn" onclick="showSection('profzio')">Profzio</button>
-            <button class="nav-btn" onclick="showSection('android')">Android Dev</button>
-        </nav>
-    </header>
-
-    <div id="clinic" class="section active">
-        <div class="clinic-card">
-            <h2>Welcome to Our Advanced Physiotherapy Clinic</h2>
-            <p>Providing evidence-based treatments, active rehab, and advanced modalities for fast and effective recovery.</p>
-            <p><strong>Treatments:</strong> TENS, Ultrasound, Traction, Cupping, and Manual Therapy.</p>
-            
-            <button class="switch-btn" onclick="showSection('profzio')">Switch to Profzio</button>
+    <nav>
+        <a href="#home" class="logo">Dr. Yogesh Sharma</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#clinic">Pro Physio Clinic</a>
+            <a href="#software">Enterprise Software</a>
+            <a href="#yarvis">Yarvis Flasher</a>
         </div>
+    </nav>
+
+    <div class="hero" id="home">
+        <h1>Advanced Healthcare Meets Next-Gen Technology</h1>
+        <p>Expert Physiotherapy Rehabilitation combined with Proprietary Enterprise Clinical Software and Universal Multi-Device Solutions.</p>
+        <a href="#clinic" class="btn">Explore Pro Physio</a>
     </div>
 
-    <div id="profzio" class="section">
-        <div class="profzio-header">
-            <h2>Profzio Software</h2>
-            <p>The complete management solution for modern clinics.</p>
-        </div>
-        
-        <div class="profzio-features">
-            <div class="feature-box">
-                <div class="profzio-img-placeholder">[ Insert Screenshot 1 Here ]</div>
-                <h3>Patient Dashboard</h3>
-                <p>Track appointments, maintain digital records, and monitor patient recovery rates seamlessly.</p>
+    <div class="container" id="about">
+        <h2 class="section-title">Meet The Founder</h2>
+        <div class="about-content">
+            <h3 style="color: var(--primary); font-size: 1.8rem; margin-top: 0;">Dr. Yogesh Sharma (PT)</h3>
+            <p style="color: var(--secondary); font-weight: bold; font-size: 1.1rem;">Founder, Lead Physiotherapist & Tech Developer</p>
+            
+            <p>With a strong medical foundation established at the University of Health Sciences, Rohtak, Dr. Yogesh Sharma brings a highly modern and research-driven approach to the field of physiotherapy. Recognizing the rapidly evolving landscape of healthcare, he is deeply invested in the intersection of clinical practice and technology.</p>
+            
+            <p>By actively utilizing advanced research methodologies and emerging AI tools, he ensures that patient care is always backed by the latest scientific evidence and innovative techniques. Operating out of Hisar, Haryana (NH9), he provides top-tier evidence-based manual therapy and develops proprietary systems like the <strong>Pro Physio Software</strong> and <strong>YARVIS 9.0 Universal Flasher</strong>.</p>
+            
+            <div class="vision-box">
+                <h4>Our Vision</h4>
+                <p>"To revolutionize physiotherapy and rehabilitation by seamlessly blending evidence-based manual therapy with cutting-edge technological advancements, ensuring accessible, fast, and optimal recovery for every individual."</p>
             </div>
-            <div class="feature-box">
-                <div class="profzio-img-placeholder">[ Insert Screenshot 2 Here ]</div>
-                <h3>Analytics & Reports</h3>
-                <p>Generate detailed clinic performance reports and billing summaries with a single click.</p>
+
+            <a href="https://instagram.com/its_dr_yogesh" target="_blank" class="instagram-btn">
+                📸 Follow on Instagram: @its_dr_yogesh
+            </a>
+        </div>
+    </div>
+
+    <div class="container" style="background-color: var(--card-bg); border-radius: 15px; padding-top: 50px; padding-bottom: 50px;" id="software">
+        <h2 class="section-title">Pro Physio Enterprise Software</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto;">A highly secure, fully offline clinical management and assessment system engineered specifically for advanced physiotherapy centers.</p>
+        
+        <div class="grid-3">
+            <div class="card">
+                <h3>Comprehensive Assessments</h3>
+                <ul class="feature-list">
+                    <li>Musculoskeletal & Orthopedic Modules</li>
+                    <li>Neurological & Sports Assessments</li>
+                    <li>Cardiopulmonary Evaluation</li>
+                    <li>ROM Grid & MMT Charting</li>
+                    <li>Integrated Red Flag Screening</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Patient & Clinic Management</h3>
+                <ul class="feature-list">
+                    <li>Dynamic Dashboard with Revenue Tracking</li>
+                    <li>SMART Clinical Goals Integration</li>
+                    <li>Home Exercise Program (HEP) Generator</li>
+                    <li>Billing, Scheduling & Next Appt Tracking</li>
+                    <li>100% Offline Database & Secure Backups</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Enterprise Actions</h3>
+                <ul class="feature-list">
+                    <li>1-Click Premium PDF Report Generation</li>
+                    <li>Instant WhatsApp Reminder Integration</li>
+                    <li>Automated Informed Consent Forms</li>
+                    <li>Customizable Themes (macOS Light/Dark)</li>
+                    <li>Clinical Record & Log Book Archiving</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <div id="android" class="section">
-        <h2 style="text-align: center;">Android Development & Ports</h2>
-        <p style="text-align: center; margin-bottom: 30px;">Download my custom Android ROMs and ports below:</p>
-        
-        <div class="android-links">
-            <a href="#" target="_blank">Download Port 1 (Link)</a>
-            <a href="#" target="_blank">Download Port 2 (Link)</a>
-            <a href="#" target="_blank">Download Port 3 (Link)</a>
+    <div class="container" id="yarvis">
+        <h2 class="section-title">YARVIS 9.0 Universal Flasher</h2>
+        <div class="grid-2">
+            <div class="card tech-box">
+                <h3>Master Multi-Device Hub Online</h3>
+                <p>Developed entirely by Dr. YSOFFICIAL, YARVIS 9.0 is a powerful, intelligent Windows-based flashing utility featuring built-in AI voice assistance and automated hardware detection.</p>
+                <ul class="feature-list" style="color: #ccc;">
+                    <li style="border-bottom-color: rgba(255,255,255,0.1);">Automated Device Architecture Scanning</li>
+                    <li style="border-bottom-color: rgba(255,255,255,0.1);">Integrated SAPI Voice Engine for Audio Prompts</li>
+                    <li style="border-bottom-color: rgba(255,255,255,0.1);">Intelligent Auto-Routing Matrix</li>
+                    <li style="border-bottom-color: rgba(255,255,255,0.1);">Manual Override Protocol Selection</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Supported Devices Matrix</h3>
+                <p>Fully tested and optimized flashing protocols for the following device architectures:</p>
+                <div style="margin-top: 20px;">
+                    <span class="device-tag" style="background: var(--primary); color: white;">Moto G30 (caprip)</span>
+                    <span class="device-tag" style="background: var(--primary); color: white;">Tecno Camon 20 Pro (ck7n_h894)</span>
+                    <span class="device-tag" style="background: var(--primary); color: white;">CK8N / CK8NB Both (ck8nu_h931)</span>
+                    <span class="device-tag" style="background: var(--primary); color: white;">CK9N (ck9n_h933)</span>
+                    <span class="device-tag" style="background: var(--primary); color: white;">Tecno Fold 2 (ae10_h833)</span>
+                    <span class="device-tag" style="background: var(--primary); color: white;">GT 10 Pro (x6739)</span>
+                    <span class="device-tag" style="background: var(--primary); color: white;">Xiaomi Poco (land/landx)</span>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-            
-            // Remove 'active' styling from all top navigation buttons
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            
-            // Show the selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Highlight the correct top navigation button
-            const btns = document.querySelectorAll('.nav-btn');
-            if(sectionId === 'clinic') btns[0].classList.add('active');
-            if(sectionId === 'profzio') btns[1].classList.add('active');
-            if(sectionId === 'android') btns[2].classList.add('active');
-        }
-    </script>
+    <footer>
+        <h2>PRO PHYSIO PHYSIOTHERAPY CENTER</h2>
+        <p>Hisar, Haryana NH9 | Reg No: PT-HSCP-02245/23</p>
+        <p style="margin-top: 10px;">
+            <a href="https://instagram.com/its_dr_yogesh" target="_blank" style="color: var(--accent); text-decoration: none;">@its_dr_yogesh</a>
+        </p>
+        <p style="margin-top: 20px; opacity: 0.6;">&copy; 2026 Dr. Yogesh Sharma. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
